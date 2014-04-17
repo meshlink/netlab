@@ -1,0 +1,42 @@
+ = Step1 - Install Netkit =
+
+cd ~
+wget http://stud.netgroup.uniroma2.it/~saverio/netkit/netkit-core-2.12-r2-32.tar.bz2
+wget http://stud.netgroup.uniroma2.it/~saverio/netkit/netkit-filesystem-i386-F7.0-r2-meshlink-saverio.tar.bz2
+wget http://stud.netgroup.uniroma2.it/~saverio/netkit/netkit-kernel-i386-K3.2-r2.tar.bz2
+
+untar this three files, they will install everything in the ~/netkit folder
+
+run ./check_configuration.sh in the ~/netkit folder to adjust your .bashrc
+
+Saverio .bashrc for example is:
+
+export NETKIT_HOME=/home/saverio/netkit
+export PATH=/home/saverio/netkit/bin:$PATH
+export MANPATH=:/home/saverio/netkit/man
+
+
+ = Step2 - Use the meshlink setup =
+
+cd lab1
+lstart
+
+Three xterm will come up with three virtual machines.
+
+inside the virtual machine goto meshlink sources
+
+cd /hosthome/path/to/meshlink/source/inyourhome
+
+autoreconf -i && ./configure && make
+cd meshlink-sample
+make
+
+now you can use the meshlinkapp
+
+./meshlinkapp /meshlink myhostname remotehostname
+
+every virtual machine has a configuration in the /meshlink folder
+
+
+
+
